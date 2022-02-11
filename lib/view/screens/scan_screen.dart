@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iqr_validator/logic/controller/QrScannerController.dart';
+import 'package:iqr_validator/controller/QrScannerController.dart';
 import 'package:iqr_validator/utils/constants.dart';
 import 'package:iqr_validator/view/widgets/AlertWidget.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
