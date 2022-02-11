@@ -17,6 +17,8 @@ class LoginScreen extends StatelessWidget with FormValidation {
 
   @override
   Widget build(BuildContext context) {
+
+    var  _submited =  AutovalidateMode.disabled ;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -36,7 +38,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
                           width: 200.h, height: 200.h, fit: BoxFit.fill),
                     )),
                 Form(
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  // autovalidateMode: _submited,
                     key: formGlobalKey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -70,6 +72,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
                               if(formGlobalKey.currentState!.validate() ){
                                 Get.offNamed(Routes.homeScreen);
                               }
+                              _submited =  AutovalidateMode.onUserInteraction;
 
                             })
 

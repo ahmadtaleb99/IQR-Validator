@@ -24,18 +24,22 @@ class AuthTextFromField extends StatelessWidget {
       validator: (value) => validator(value),
       controller: controller,
       obscureText: obscureText,
+
+      autovalidateMode:  AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
+
         hintTextDirection: TextDirection.rtl,
         suffixIcon: suffexIcon,
         fillColor: Colors.white,
         prefixIcon: prefixIcon,
-
         filled: true,
         hintText: hintText,
+        errorStyle: TextStyle(),
         hintStyle: TextStyle(
          color: Colors.grey.withOpacity(0.250)
         ),
         enabledBorder: OutlineInputBorder(
+
             borderSide:  BorderSide(color: Colors.grey.withOpacity(0.250)),
             borderRadius: BorderRadius.circular(5)),
         focusedBorder: OutlineInputBorder(

@@ -72,8 +72,7 @@ class HomeScreen extends StatelessWidget {
                 AuthButton(
                     text: 'تسجيل خروج',
                     onPressed: () {
-                      ShowAlertWidget(
-                          context, 'title', 'discreption', kFoundQr);
+
                     }
             ),
           ]),
