@@ -46,12 +46,15 @@ class LoginScreen extends StatelessWidget with FormValidation {
                         Text('اسم المستخدم',style: TextStyle(
                           fontWeight: FontWeight.bold
                         ),),
-                        AuthTextFromField(controller: _usernameController, obscureText: false, hintText: '******', validator: (userName){
+                        Directionality(
+                          textDirection: TextDirection.rtl,
+                          child: AuthTextFromField(controller: _usernameController, obscureText: false, hintText: '******', validator: (userName){
                     if(!isValidUser(userName))
                       return 'اسم المستخدم غير صالح';
 
                     else return null;
-                        }),
+                          }),
+                        ),
                         SizedBox(height: 20.h,),
 
 
@@ -59,12 +62,16 @@ class LoginScreen extends StatelessWidget with FormValidation {
                         Text('كلمة المرور',style: TextStyle(
                             fontWeight: FontWeight.bold
                         ),),
-                        AuthTextFromField(controller: _passwordController, obscureText: true, hintText: '******', validator: (password){
-                          if(!isValidPassword(password))
-                            return 'يجب أن تتكون كلمة المرور من 4 محارف على الأقل';
+                        Directionality(
+                          textDirection: TextDirection.rtl,
 
-                          else return null;
-                        }),
+                          child: AuthTextFromField(controller: _passwordController, obscureText: true, hintText: '******', validator: (password){
+                            if(!isValidPassword(password))
+                              return 'يجب أن تتكون كلمة المرور من 4 محارف على الأقل';
+
+                            else return null;
+                          }),
+                        ),
                         SizedBox(height: 80.h,),
                         AuthButton(
                             text: 'تسجيل دخول',
