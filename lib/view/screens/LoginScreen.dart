@@ -48,7 +48,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
                         ),),
                         Directionality(
                           textDirection: TextDirection.rtl,
-                          child: AuthTextFromField(controller: _usernameController, obscureText: false, hintText: '******', validator: (userName){
+                          child: AuthTextFromField(controller: _usernameController, textInputAction: TextInputAction.next,obscureText: false, hintText: '******', validator: (userName){
                     if(!isValidUser(userName))
                       return 'اسم المستخدم غير صالح';
 
@@ -65,7 +65,9 @@ class LoginScreen extends StatelessWidget with FormValidation {
                         Directionality(
                           textDirection: TextDirection.rtl,
 
-                          child: AuthTextFromField(controller: _passwordController, obscureText: true, hintText: '******', validator: (password){
+                          child: AuthTextFromField(controller: _passwordController,  textInputAction: TextInputAction.done,obscureText: true, hintText: '******',onFieldSubmitted: (text){
+                            _login();
+                          }, validator: (password){
                             if(!isValidPassword(password))
                               return 'يجب أن تتكون كلمة المرور من 4 محارف على الأقل';
 
@@ -76,10 +78,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
                         AuthButton(
                             text: 'تسجيل دخول',
                             onPressed: () {
-                              if(formGlobalKey.currentState!.validate() ){
-                                Get.offNamed(Routes.homeScreen);
-                              }
-                              _submited =  AutovalidateMode.onUserInteraction;
+                            _login();
 
                             })
 
@@ -94,4 +93,11 @@ class LoginScreen extends StatelessWidget with FormValidation {
       ),
     );
   }
+
+  void _login(){
+    if(formGlobalKey.currentState!.validate() ){
+      Get.offNamed(Routes.homeScreen);
+    }
+  }
+
 }

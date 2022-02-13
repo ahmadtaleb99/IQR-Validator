@@ -20,7 +20,7 @@ class AboutScreen extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.all(30.0.h),
+                  padding: EdgeInsets.symmetric(vertical: 25.h, horizontal:25.w),
                   child: Container(
                     child: Image.asset('assets/images/flex_logo.png',
                         width: 200.h, height: 200.h, fit: BoxFit.fill),

@@ -1,4 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:iqr_validator/routes.dart';
 
 class AuthTextFromField extends StatelessWidget {
   final TextEditingController controller;
@@ -7,26 +10,31 @@ class AuthTextFromField extends StatelessWidget {
   final Widget? suffexIcon;
   final String hintText;
   final Function validator;
+  final void Function(String) ?  onFieldSubmitted;
+
+  final TextInputAction textInputAction;
   const AuthTextFromField(
       {Key? key,
         required this.controller,
         required this.obscureText,
         this.prefixIcon,
         required this.hintText,
-        required this.validator, this.suffexIcon})
+        required this.validator, this.suffexIcon, required this.textInputAction, this.onFieldSubmitted})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      textInputAction: textInputAction,
       textDirection: TextDirection.rtl,
-
+      onFieldSubmitted: onFieldSubmitted,
       validator: (value) => validator(value),
       controller: controller,
       obscureText: obscureText,
 
       autovalidateMode:  AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
+
 
         hintTextDirection: TextDirection.rtl,
         suffixIcon: suffexIcon,
