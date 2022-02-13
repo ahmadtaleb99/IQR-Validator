@@ -80,7 +80,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
                             onPressed: () {
                             _login();
 
-                            })
+                            }),
 
 
                       ],

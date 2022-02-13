@@ -10,14 +10,14 @@ class QrScannerController extends GetxController {
 
   QRViewController? controller;
    // result = Rx<Barcode>();
-  var result  = Barcode(null, BarcodeFormat.aztec, []).obs;
+   final    _result = Barcode(null,BarcodeFormat.aztec,null).obs;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
    createScan(QRViewController controller,BuildContext context) {
      this.controller = controller;
     controller.scannedDataStream.listen((scanData) async {
-      result.value= scanData ;
-      if(result.value.code != null){
+      _result.value= scanData ;
+      if(_result.value.code != null){
         await controller.pauseCamera();
 
         showDialog(

@@ -43,7 +43,6 @@ class MyApp extends StatelessWidget {
               // darkTheme: ThemeData.dark(),
               initialRoute:  Routes.loginSceen,//FirebaseAuth.instance.currentUser != null || AuthController().authBox.read('isSignedIN') ? Routes.mainScreen : Routes.welcomeScreen ,
               getPages: AppRoutes.routes,
-
             );
           },
 
