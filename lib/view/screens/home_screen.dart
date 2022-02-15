@@ -1,16 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:iqr_validator/routes.dart';
 import 'package:iqr_validator/utils/constants.dart';
-import 'package:iqr_validator/view/widgets/AlertWidget.dart';
 import 'package:iqr_validator/view/widgets/AuthButton.dart';
 import 'package:iqr_validator/view/widgets/CustomButton.dart';
-import 'package:qr_code_scanner/qr_code_scanner.dart';
-
-import '../widgets/CustomAlertDialog.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -20,7 +15,7 @@ class HomeScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Document Validator'),
+          title: const Text('Document Validator'),
           centerTitle: true,
         ),
         body: SingleChildScrollView(

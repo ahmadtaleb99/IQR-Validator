@@ -11,7 +11,7 @@ class AboutScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('عن التطبيق'),
+          title: const Text('عن التطبيق'),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -27,7 +27,7 @@ class AboutScreen extends StatelessWidget {
                   ),
                 ),
 
-                Text(kAboutText),
+                const Text(kAboutText),
               ],
             ),
           ),

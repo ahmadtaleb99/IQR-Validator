@@ -43,6 +43,7 @@ dependencies:
   readmore: ^2.1.0
   flutter_svg: ^1.0.3
   qr_code_scanner: ^0.6.1
+  flutter_spinkit: ^5.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -66,7 +67,7 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/
+    - assets/ca/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,5 +1,4 @@
-import 'package:device_preview/device_preview.dart';
-
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -8,9 +7,10 @@ import 'package:iqr_validator/routes.dart';
 import 'package:iqr_validator/utils/constants.dart';
 
 
-void main() {
-
-
+Future<void> main()  async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global =  MyHttpOverrides();
+  await GetStorage.init();
 
   runApp(const MyApp());
 }
@@ -29,8 +29,7 @@ class MyApp extends StatelessWidget {
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               builder: (context, widget) {
-                print(MediaQuery.of(context).size.width);
-                print(MediaQuery.of(context).size.height);
+
                 ScreenUtil.setContext(context);
                 return MediaQuery(
                   //Setting font does not change with system font size
@@ -49,3 +48,11 @@ class MyApp extends StatelessWidget {
    );}
 }
 
+
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext ? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+  }
+}

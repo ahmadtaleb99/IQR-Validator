@@ -9,10 +9,10 @@ import 'package:iqr_validator/view/screens/scan_screen.dart';
 class AppRoutes {
 
   static final routes = [
-    GetPage (name: Routes.homeScreen , page: () => HomeScreen() ),
+    GetPage (name: Routes.homeScreen , page: () => const HomeScreen() ),
     GetPage (name: Routes.loginSceen , page: () => LoginScreen() ),
-    GetPage (name: Routes.aboutScreen , page: () => AboutScreen() ),
-    GetPage (name: Routes.scanScreen , page: () => ScanScreen() ),
+    GetPage (name: Routes.aboutScreen , page: () => const AboutScreen() ),
+    GetPage (name: Routes.scanScreen , page: () => const ScanScreen() ),
   ];
 
 }

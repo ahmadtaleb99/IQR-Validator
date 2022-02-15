@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
+import 'package:iqr_validator/controller/AuthController.dart';
 import 'package:iqr_validator/routes.dart';
 import 'package:iqr_validator/utils/constants.dart';
 import 'package:iqr_validator/view/widgets/AuthButton.dart';
@@ -10,14 +12,19 @@ import 'package:iqr_validator/services//FormValidation.dart';
 
 class LoginScreen extends StatelessWidget with FormValidation {
   LoginScreen({Key? key}) : super(key: key);
+  final _authController = Get.put(AuthController(),permanent: true);
 
   final formGlobalKey = GlobalKey<FormState>();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _usernameController = TextEditingController();
 
+  String userName='';
+  String password='';
+
   @override
   Widget build(BuildContext context) {
-
+    _usernameController.text ='ahmad';
+    _passwordController.text ='ahmad';
     var  _submited =  AutovalidateMode.disabled ;
     return SafeArea(
       child: Scaffold(
@@ -59,7 +66,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
 
 
 
-                        Text('كلمة المرور',style: TextStyle(
+                      const  Text('كلمة المرور',style: TextStyle(
                             fontWeight: FontWeight.bold
                         ),),
                         Directionality(
@@ -95,8 +102,12 @@ class LoginScreen extends StatelessWidget with FormValidation {
   }
 
   void _login(){
+    userName = _usernameController.text;
+    password = _passwordController.text;
     if(formGlobalKey.currentState!.validate() ){
-      Get.offNamed(Routes.homeScreen);
+      _authController.loginUserAndPassword(userName: userName, password: password);
+      // if(_authController.isLoading)
+      // Get.offNamed(Routes.homeScreen);
     }
   }
 

@@ -1,15 +1,14 @@
 import 'dart:ui';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iqr_validator/utils/constants.dart';
 
 
 
+
 class CustomAlertDialog extends StatelessWidget {
   final String title, descriptions, buttonText;
-  final Icon titleIcon ;
-  final Color color;
+  final AlertType alertType;
   final void Function() onPressed;
   const CustomAlertDialog(
       {
@@ -17,7 +16,11 @@ class CustomAlertDialog extends StatelessWidget {
         required  this.title,
         required   this.descriptions,
       required this.buttonText,
-      required this.titleIcon, required this.color, required this.onPressed}) : super(key: key);
+      required this.onPressed, required this.alertType}) : super(key: key);
+
+
+
+
 
 
   @override
@@ -48,9 +51,9 @@ class CustomAlertDialog extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
-              color: color,
+              color: alertType == AlertType.ERROR ? kNotFoundQr : kFoundQr ,
 
-              borderRadius: BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(10)),
+              borderRadius: const BorderRadius.only(topRight: Radius.circular(10),topLeft: Radius.circular(10)),
             ),
             height: 9.h,
             width: double.infinity,
@@ -64,12 +67,25 @@ class CustomAlertDialog extends StatelessWidget {
               Row(
                   textDirection: TextDirection.rtl,
                   children: [
-                 titleIcon,
+                    alertType == AlertType.SUCCESS ? const Icon(
+                      Icons.check_circle,
+                      color: kFoundQr,
+                      size: 30,
+            ) :  const CircleAvatar(
+                      radius: 12,
+                      backgroundColor: kNotFoundQr,
+                      child: const Icon(
+                        Icons.close_sharp,
+                        color: Colors.white,
+                      ),
+                    ),
+
+                    SizedBox(width: 15.w),
                     Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.sp),),
                   ],
                 ),
                 SizedBox(height: 10.h,),
-                Center(child: Text(descriptions,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 16.sp),)),
+                Center(child: Text(descriptions,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 20.sp),)),
                 SizedBox(height: 22.h,),
 
 
@@ -77,7 +93,8 @@ class CustomAlertDialog extends StatelessWidget {
                 ElevatedButton(
 
                             style: ElevatedButton.styleFrom(
-                                primary: color
+                                primary:  alertType == AlertType.ERROR ? kNotFoundQr : kFoundQr ,
+
                             ),
 
                             onPressed: onPressed, child: Center(child: Text(buttonText))),

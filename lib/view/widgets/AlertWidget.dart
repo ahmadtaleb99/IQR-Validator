@@ -1,27 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void ShowAlertWidget(BuildContext context,String title,String discreption,Color color) {
-  showDialog(
+void ShowAlertWidget(BuildContext context) {
+  showDialog(barrierDismissible: true,
       context: context,
       builder: (context)
   {
-    return CupertinoAlertDialog(
-      title: Text(title),
-      content: Text(discreption),
-      actions: <Widget>[
-        TextButton(
-            onPressed: () {
+    return Dialog(
+      child: Column(
+        children: [
+          CircularProgressIndicator(),
+          SizedBox(height: 10,)
 
-            },
-            child: Text('Close')),
-        TextButton(
-          onPressed: () {
-            print('HelloWorld!');
-          },
-          child: Text('HelloWorld!'),
-        )
-      ],
+
+        ],
+      ),
     );
   });
       // });

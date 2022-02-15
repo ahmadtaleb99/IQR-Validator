@@ -43,9 +43,14 @@ class _ScanScreenState extends State<ScanScreen> {
     Expanded(
       flex: 5,
       child:  QRView(
+      overlay: QrScannerOverlayShape(
+        borderLength: 14,
+        borderWidth: 6,
+        borderColor: Colors.grey
+      ),
         key: qrController.qrKey,
-        onQRViewCreated: (crtl){
-          qrController.createScan(crtl,context);
+        onQRViewCreated: (controller){
+          qrController.createScan(controller);
         },
       ),
     ),
