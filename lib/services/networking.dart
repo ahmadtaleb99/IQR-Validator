@@ -36,7 +36,7 @@ class NetworkingHelper{
       http.Response response  = await http.post(Uri.parse(url),
         headers: headers,
         body: body
-      ).timeout(Duration(seconds: 7));
+      ).timeout(Duration(seconds: 9));
       var data = jsonDecode(response.body);
 
       if(response.statusCode == 200){

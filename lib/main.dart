@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:iqr_validator/controller/AuthBinding.dart';
+import 'package:iqr_validator/controller/AuthController.dart';
 import 'package:iqr_validator/routes.dart';
 import 'package:iqr_validator/utils/constants.dart';
 
@@ -18,6 +20,7 @@ Future<void> main()  async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +41,14 @@ class MyApp extends StatelessWidget {
                 );
               },
               theme: light,
-              // theme: ThemeData.light(),
-              // darkTheme: ThemeData.dark(),
-              initialRoute:  Routes.loginSceen,//FirebaseAuth.instance.currentUser != null || AuthController().authBox.read('isSignedIN') ? Routes.mainScreen : Routes.welcomeScreen ,
+
+              initialRoute:
+              // Routes.homeScreen,
+              GetStorage().read('access_token') == null ?
+              Routes.loginSceen : Routes.homeScreen,
               getPages: AppRoutes.routes,
+              initialBinding: AuthBinding(),
+
             );
           },
 

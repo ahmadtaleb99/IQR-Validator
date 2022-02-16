@@ -13,62 +13,31 @@ import 'package:iqr_validator/utils/constants.dart';
 import 'package:iqr_validator/view/widgets/CustomAlertDialog.dart';
 
 class AuthController extends GetxController {
-  late final String access_token;
-  final loginBox = GetStorage();
-  void _showLoadingIndicator() {
-    Get.dialog(
-        Center(
-          child: Container(
-            width: 100,
-            child: Material(
-              borderRadius: BorderRadius.circular(10),
-              clipBehavior: Clip.antiAlias,
-              color: Colors.white.withOpacity(0.9),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SpinKitFadingFour(color: Colors.blue),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    const Text(
-                      'Loading ..',
-                      style: TextStyle(color: Colors.black),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ),
-        barrierDismissible: false,
-        barrierColor: Colors.grey.withOpacity(0.2));
-  }
+   String  ? access_token;
+  final _loginBox = GetStorage();
 
   Future<void> loginUserAndPassword  ({required String userName, required String password}) async {
 
 
     try {
-      _showLoadingIndicator();
+      showLoadingIndicator();
       var body = {'username': userName, 'password': password};
       Map<String, dynamic> response = await NetworkingHelper.postData(url: '$baseUrl/login', body: body);
-
+        print(response);
 
       Get.back(closeOverlays: true);
 
 
       if (response['status'] == true) {
         access_token = response['access_token'];
-        loginBox.write('access_token', access_token);
+        _loginBox.write('access_token', access_token);
         Get.offNamed(Routes.homeScreen);
       }
 
       else if (response['status'] == false) {
 
 
-              if(response['message'] =='USER_INACTIVE')
+              if(response['message'] =="INACTIVE_ACCOUNT")
                 {
                   Get.dialog(
                       CustomAlertDialog(
@@ -100,24 +69,23 @@ class AuthController extends GetxController {
 
 
     } on TimeoutException {
-      Get.dialog(
-          CustomAlertDialog(
-              title: 'فشل الاتصال',
-              descriptions: 'يرجى المحاولة مرة أخرى',
-              buttonText: 'حسناً',
-              onPressed: () {
-                Get.back(closeOverlays: true);
-              },
-              alertType: AlertType.ERROR),
-          barrierDismissible: false);
+     showInternetErrorDialog();
     } catch (e) {
-      print(e);
+      showInternetErrorDialog();
     }
+  }
+
+  void logout(){
+    _loginBox.remove('access_token');
+    Get.offAllNamed(Routes.loginSceen);
   }
 
   @override
   void onInit() {
     super.onInit();
-    loginBox.read('access_token');
+    access_token = _loginBox.read('access_token');
+    print(access_token);
   }
 }
+
+

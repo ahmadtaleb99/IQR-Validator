@@ -12,8 +12,7 @@ import 'package:iqr_validator/services//FormValidation.dart';
 
 class LoginScreen extends StatelessWidget with FormValidation {
   LoginScreen({Key? key}) : super(key: key);
-  final _authController = Get.put(AuthController(),permanent: true);
-
+  final _authController = Get.find<AuthController>();
   final formGlobalKey = GlobalKey<FormState>();
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _usernameController = TextEditingController();

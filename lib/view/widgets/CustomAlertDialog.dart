@@ -64,26 +64,30 @@ class CustomAlertDialog extends StatelessWidget {
               textDirection: TextDirection.rtl,
               mainAxisSize: MainAxisSize.min,
               children: [
-              Row(
-                  textDirection: TextDirection.rtl,
-                  children: [
-                    alertType == AlertType.SUCCESS ? const Icon(
-                      Icons.check_circle,
-                      color: kFoundQr,
-                      size: 30,
+              Directionality(
+                textDirection: TextDirection.rtl
+                ,child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                    // textDirection: TextDirection.rtl,
+                    children: [
+                      alertType == AlertType.SUCCESS ? const Icon(
+                        Icons.check_circle,
+                        color: kFoundQr,
+                        size: 30,
             ) :  const CircleAvatar(
-                      radius: 12,
-                      backgroundColor: kNotFoundQr,
-                      child: const Icon(
-                        Icons.close_sharp,
-                        color: Colors.white,
+                        radius: 12,
+                        backgroundColor: kNotFoundQr,
+                        child: const Icon(
+                          Icons.close_sharp,
+                          color: Colors.white,
+                        ),
                       ),
-                    ),
 
-                    SizedBox(width: 15.w),
-                    Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.sp),),
-                  ],
-                ),
+                      SizedBox(width: 15.w),
+                      Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.sp),),
+                    ],
+                  ),
+              ),
                 SizedBox(height: 10.h,),
                 Center(child: Text(descriptions,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 20.sp),)),
                 SizedBox(height: 22.h,),

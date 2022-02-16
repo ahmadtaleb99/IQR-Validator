@@ -2,14 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iqr_validator/controller/AuthController.dart';
 import 'package:iqr_validator/routes.dart';
 import 'package:iqr_validator/utils/constants.dart';
 import 'package:iqr_validator/view/widgets/AuthButton.dart';
 import 'package:iqr_validator/view/widgets/CustomButton.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
-
+   HomeScreen({Key? key}) : super(key: key);
+    final _authController = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -67,7 +68,7 @@ class HomeScreen extends StatelessWidget {
                 AuthButton(
                     text: 'تسجيل خروج',
                     onPressed: () {
-
+                      _authController.logout();
                     }
             ),
           ]),
