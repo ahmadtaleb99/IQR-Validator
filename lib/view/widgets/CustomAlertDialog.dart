@@ -84,12 +84,12 @@ class CustomAlertDialog extends StatelessWidget {
                       ),
 
                       SizedBox(width: 15.w),
-                      Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.sp),),
+                      Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                     ],
                   ),
               ),
                 SizedBox(height: 10.h,),
-                Center(child: Text(descriptions,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 20.sp),)),
+                Center(child: Text(descriptions,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 20),)),
                 SizedBox(height: 22.h,),
 
 

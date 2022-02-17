@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iqr_validator/controller/QrScannerController.dart';
 import 'package:iqr_validator/utils/constants.dart';
@@ -39,26 +40,22 @@ class _ScanScreenState extends State<ScanScreen> {
         centerTitle: true,
       ),
       body:                  Column(
-    children: <Widget>[
-    Expanded(
-      flex: 5,
-      child:  QRView(
-      overlay: QrScannerOverlayShape(
-        borderLength: 14,
-        borderWidth: 6,
-        borderColor: Colors.grey
-      ),
-        key: qrController.qrKey,
-        onQRViewCreated: (controller){
-          qrController.createScan(controller);
-        },
-      ),
-    ),
-
-
-
-    ],
-    )
+        children: [
+          Expanded(
+            child:  QRView(
+            overlay: QrScannerOverlayShape(
+              borderLength: 14,
+              borderWidth: 6,
+              borderColor: Colors.grey
+            ),
+              key: qrController.qrKey,
+              onQRViewCreated: (controller){
+                qrController.createScan(controller);
+              },
+            ),
+          ),
+        ],
+      )
 
     );
 
