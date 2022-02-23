@@ -5,11 +5,10 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iqr_validator/view/widgets/CustomAlertDialog.dart';
 
-const baseUrl = 'https://192.168.1.116/qr-prints-demo/api';
+import 'enums.dart';
 
-enum AlertType{
-  ERROR,SUCCESS
-}
+const baseUrl = 'http://flexsolutions.biz/apps/doc-validator/api';
+
 
 ThemeData light = ThemeData(
   backgroundColor: Colors.white,
@@ -61,13 +60,14 @@ void showLoadingIndicator({String ? text}) {
 }
 
 void showInternetErrorDialog(){
+  Get.back();
   Get.dialog(
       CustomAlertDialog(
           title: 'مشكلة اتصال',
           descriptions: 'يرجى المحاولة مرة أخرى',
           buttonText: 'حسناً',
           onPressed: () {
-            Get.back(closeOverlays: true);
+            Get.back();
           },
           alertType: AlertType.ERROR),
       barrierDismissible: false);

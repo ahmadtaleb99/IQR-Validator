@@ -2,6 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iqr_validator/utils/constants.dart';
+import 'package:iqr_validator/utils/enums.dart';
 
 
 
@@ -67,30 +68,45 @@ class CustomAlertDialog extends StatelessWidget {
               Directionality(
                 textDirection: TextDirection.rtl
                 ,child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                     // textDirection: TextDirection.rtl,
                     children: [
-                      alertType == AlertType.SUCCESS ? const Icon(
-                        Icons.check_circle,
-                        color: kFoundQr,
-                        size: 30,
-            ) :  const CircleAvatar(
-                        radius: 12,
-                        backgroundColor: kNotFoundQr,
+                      alertType == AlertType.SUCCESS ? Padding(
+                        padding: const EdgeInsets.only(top: 2.0),
                         child: const Icon(
-                          Icons.close_sharp,
-                          color: Colors.white,
+                          Icons.check_circle,
+                          color: kFoundQr,
+                          size: 30,
+            ),
+                      ) :
+                      Padding(
+                        padding: const EdgeInsets.only(top: 3.6),
+                        child: const CircleAvatar(
+                          radius: 12,
+                          backgroundColor: kNotFoundQr,
+                          child: const Icon(
+                            Icons.close_sharp,
+                            color: Colors.white,
+                          ),
                         ),
                       ),
 
                       SizedBox(width: 15.w),
-                      Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                      Flexible(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                            SizedBox(height: 5.h,),
+                            Text(descriptions,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 19)),
+
+                          ],
+                        ),
+                      ),
                     ],
                   ),
               ),
-                SizedBox(height: 10.h,),
-                Center(child: Text(descriptions,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 20),)),
-                SizedBox(height: 22.h,),
+                SizedBox(height: 25.h,),
 
 
 

@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:iqr_validator/controller/AuthController.dart';
 import 'package:iqr_validator/services/networking.dart';
 import 'package:iqr_validator/utils/constants.dart';
+import 'package:iqr_validator/utils/enums.dart';
 import 'package:iqr_validator/view/widgets/CustomAlertDialog.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:iqr_validator/utils/constants.dart';

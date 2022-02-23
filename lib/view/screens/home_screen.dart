@@ -66,7 +66,7 @@ class HomeScreen extends StatelessWidget {
                   height: 157.h,
                 ),
                 AuthButton(
-                    text: 'تسجيل خروج',
+                    text: 'تسجيل الخروج',
                     onPressed: () {
                       _authController.logout();
                     }

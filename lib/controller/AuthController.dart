@@ -10,6 +10,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:iqr_validator/routes.dart';
 import 'package:iqr_validator/services/networking.dart';
 import 'package:iqr_validator/utils/constants.dart';
+import 'package:iqr_validator/utils/enums.dart';
 import 'package:iqr_validator/view/widgets/CustomAlertDialog.dart';
 
 class AuthController extends GetxController {
@@ -23,7 +24,6 @@ class AuthController extends GetxController {
       showLoadingIndicator();
       var body = {'username': userName, 'password': password};
       Map<String, dynamic> response = await NetworkingHelper.postData(url: '$baseUrl/login', body: body);
-        print(response);
 
       Get.back(closeOverlays: true);
 
@@ -77,14 +77,13 @@ class AuthController extends GetxController {
 
   void logout(){
     _loginBox.remove('access_token');
-    Get.offAllNamed(Routes.loginSceen);
+    Get.offAllNamed(Routes.loginScreen);
   }
 
   @override
   void onInit() {
     super.onInit();
     access_token = _loginBox.read('access_token');
-    print(access_token);
   }
 }
 

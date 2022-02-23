@@ -2,9 +2,9 @@
     package="com.example.IQR.iqr_validator">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="iqr_validator"
+        android:label="IQR Validator"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/iqr">
         <activity
             android:name=".MainActivity"
             android:exported="true"

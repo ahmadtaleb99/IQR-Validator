@@ -12,19 +12,16 @@ import 'package:iqr_validator/services//FormValidation.dart';
 
 class LoginScreen extends StatelessWidget with FormValidation {
   LoginScreen({Key? key}) : super(key: key);
+
   final _authController = Get.find<AuthController>();
   final formGlobalKey = GlobalKey<FormState>();
+
   TextEditingController _passwordController = TextEditingController();
   TextEditingController _usernameController = TextEditingController();
 
-  String userName='';
-  String password='';
 
   @override
   Widget build(BuildContext context) {
-    _usernameController.text ='ahmad';
-    _passwordController.text ='ahmad';
-    var  _submited =  AutovalidateMode.disabled ;
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
@@ -82,7 +79,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
                         ),
                         SizedBox(height: 80.h,),
                         AuthButton(
-                            text: 'تسجيل دخول',
+                            text: 'تسجيل الدخول',
                             onPressed: () {
                             _login();
 
@@ -101,12 +98,10 @@ class LoginScreen extends StatelessWidget with FormValidation {
   }
 
   void _login(){
-    userName = _usernameController.text;
-    password = _passwordController.text;
+
     if(formGlobalKey.currentState!.validate() ){
-      _authController.loginUserAndPassword(userName: userName, password: password);
-      // if(_authController.isLoading)
-      // Get.offNamed(Routes.homeScreen);
+      _authController.loginUserAndPassword(userName: _usernameController.text, password: _passwordController.text);
+
     }
   }
 
