@@ -1,13 +1,11 @@
+// ignore_for_file: curly_braces_in_flow_control_structures, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
 import 'package:iqr_validator/controller/AuthController.dart';
-import 'package:iqr_validator/routes.dart';
-import 'package:iqr_validator/utils/constants.dart';
 import 'package:iqr_validator/view/widgets/AuthButton.dart';
 import 'package:iqr_validator/view/widgets/AuthTextFormField.dart';
-import 'package:iqr_validator/view/widgets/CustomButton.dart';
 import 'package:iqr_validator/services//FormValidation.dart';
 
 class LoginScreen extends StatelessWidget with FormValidation {
@@ -25,7 +23,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Document Validator'),
+          title: const Text('Document Validator'),
           centerTitle: true,
         ),
         body: SingleChildScrollView(
@@ -46,7 +44,7 @@ class LoginScreen extends StatelessWidget with FormValidation {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
-                        Text('اسم المستخدم',style: TextStyle(
+                        const Text('اسم المستخدم',style: TextStyle(
                           fontWeight: FontWeight.bold
                         ),),
                         Directionality(

@@ -71,20 +71,20 @@ class CustomAlertDialog extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                     // textDirection: TextDirection.rtl,
                     children: [
-                      alertType == AlertType.SUCCESS ? Padding(
-                        padding: const EdgeInsets.only(top: 2.0),
-                        child: const Icon(
+                      alertType == AlertType.SUCCESS ? const Padding(
+                        padding: EdgeInsets.only(top: 2.0),
+                        child: Icon(
                           Icons.check_circle,
                           color: kFoundQr,
                           size: 30,
             ),
                       ) :
-                      Padding(
-                        padding: const EdgeInsets.only(top: 3.6),
-                        child: const CircleAvatar(
+                      const Padding(
+                        padding: EdgeInsets.only(top: 3.6),
+                        child: CircleAvatar(
                           radius: 12,
                           backgroundColor: kNotFoundQr,
-                          child: const Icon(
+                          child:  Icon(
                             Icons.close_sharp,
                             color: Colors.white,
                           ),
@@ -96,9 +96,9 @@ class CustomAlertDialog extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(title,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
+                            Text(title,style: const TextStyle(fontWeight: FontWeight.bold,fontSize: 20),),
                             SizedBox(height: 5.h,),
-                            Text(descriptions,textDirection: TextDirection.rtl,style: TextStyle(fontSize: 19)),
+                            Text(descriptions,textDirection: TextDirection.rtl,style: const TextStyle(fontSize: 19)),
 
                           ],
                         ),

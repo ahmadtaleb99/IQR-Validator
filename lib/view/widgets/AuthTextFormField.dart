@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:iqr_validator/routes.dart';
 
 class AuthTextFromField extends StatelessWidget {
   final TextEditingController controller;

@@ -59,9 +59,9 @@ void showLoadingIndicator({String ? text}) {
       barrierColor: Colors.grey.withOpacity(0.2));
 }
 
-void showInternetErrorDialog(){
+Future<void> showInternetErrorDialog() async {
   Get.back();
-  Get.dialog(
+  await Get.dialog(
       CustomAlertDialog(
           title: 'مشكلة اتصال',
           descriptions: 'يرجى المحاولة مرة أخرى',

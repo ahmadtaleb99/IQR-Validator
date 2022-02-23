@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:http/http.dart' as http;
 
@@ -36,7 +35,7 @@ class NetworkingHelper{
       http.Response response  = await http.post(Uri.parse(url),
         headers: headers,
         body: body
-      ).timeout(Duration(seconds: 9));
+      ).timeout(const Duration(seconds: 9));
       var data = jsonDecode(response.body);
 
       if(response.statusCode == 200){

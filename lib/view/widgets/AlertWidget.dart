@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void ShowAlertWidget(BuildContext context) {
   showDialog(barrierDismissible: true,
@@ -10,8 +8,8 @@ void ShowAlertWidget(BuildContext context) {
     return Dialog(
       child: Column(
         children: [
-          CircularProgressIndicator(),
-          SizedBox(height: 10,)
+          const CircularProgressIndicator(),
+          const SizedBox(height: 10,)
 
 
         ],

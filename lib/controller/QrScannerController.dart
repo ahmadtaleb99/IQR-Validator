@@ -6,7 +6,6 @@ import 'package:iqr_validator/utils/constants.dart';
 import 'package:iqr_validator/utils/enums.dart';
 import 'package:iqr_validator/view/widgets/CustomAlertDialog.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:iqr_validator/utils/constants.dart';
 
 class QrScannerController extends GetxController {
 
@@ -90,7 +89,8 @@ class QrScannerController extends GetxController {
 
         }
         catch (e){
-          showInternetErrorDialog();
+          await showInternetErrorDialog();
+          await controller.resumeCamera();
         }
       }
     });

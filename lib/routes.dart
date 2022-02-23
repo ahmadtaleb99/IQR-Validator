@@ -1,13 +1,13 @@
 
 
 import 'package:get/get.dart';
-import 'package:iqr_validator/controller/AuthController.dart';
-import 'package:iqr_validator/controller/bindings/AboutBinding.dart';
-import 'package:iqr_validator/controller/bindings/AuthBinding.dart';
 import 'package:iqr_validator/view/screens/LoginScreen.dart';
 import 'package:iqr_validator/view/screens/about_screen.dart';
 import 'package:iqr_validator/view/screens/home_screen.dart';
 import 'package:iqr_validator/view/screens/scan_screen.dart';
+
+import 'bindings/AboutBinding.dart';
+import 'bindings/AuthBinding.dart';
 
 class AppRoutes {
 

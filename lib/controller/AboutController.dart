@@ -5,6 +5,7 @@ import 'package:iqr_validator/utils/constants.dart';
 class AboutController extends GetxController{
 
   String aboutInfo = '';
+  bool isLoading = false ;
   @override
   void onInit()  {
     super.onInit();
@@ -12,20 +13,20 @@ class AboutController extends GetxController{
   }
   void _getAboutInfo() async {
     try{
+      isLoading = true ;
 
       var data =   await NetworkingHelper.getData('$baseUrl/get-about-application');
-      print(data.toString()+'******* data from api');
       if (data['status'] == true){
         aboutInfo = data['data'];
-        update();
-
       }
-      else
-        throw 'null';
+      // else
     }
     catch (e){
       print(e);
-      rethrow;
+    }
+    finally {
+      isLoading = false;
+      update();
     }
 
   }

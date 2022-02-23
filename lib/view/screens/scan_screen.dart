@@ -2,11 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iqr_validator/controller/QrScannerController.dart';
-import 'package:iqr_validator/utils/constants.dart';
-import 'package:iqr_validator/view/widgets/AlertWidget.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class ScanScreen extends StatefulWidget {
@@ -31,7 +28,7 @@ class _ScanScreenState extends State<ScanScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('التحقق من صحة المستند'),
+          title: const Text('التحقق من صحة المستند'),
           centerTitle: true,
         ),
         body: Column(
